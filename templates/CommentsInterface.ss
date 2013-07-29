@@ -1,7 +1,7 @@
 <% require themedCSS('comments', 'comments') %>
 
 <% if CommentsEnabled && AddCommentForm %>
-	<div id="$CommentHolderID" class="comments-holder-container">
+	<div id="CommentList" class="comments-holder-container">
 		<hr />
 		<h2><% _t('CommentsInterface_ss.POSTCOM','Post your comment') %></h2>
 		
@@ -20,11 +20,9 @@
 	
 		<div class="comments-holder">
 			<% if Comments %>
-				<ul class="comments-list">
+				<ul class="comments-list replies">
 					<% loop Comments %>
-						<li class="comment $EvenOdd<% if FirstLast %> $FirstLast <% end_if %> $SpamClass">
-							<% include CommentsInterface_singlecomment %>
-						</li>
+						<% include CommentsInterface_singlecomment %>
 					<% end_loop %>
 				</ul>
 			

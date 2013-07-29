@@ -1,31 +1,41 @@
-<div class="comment" id="<% if isPreview %>comment-preview<% else %>$Permalink<% end_if %>">
-<% if $Gravatar %><img class="gravatar" src="$Gravatar" alt="Gravatar for $Name" title="Gravatar for $Name" /><% end_if %>
-	$EscapedComment
-</div>
-
-<% if not isPreview %>
-	<p class="info">
-		<% if $URL %>
-			<% _t('CommentsInterface_singlecomment_ss.PBY','Posted by') %> <a href="$URL.URL" rel="nofollow">$AuthorName.XML</a>, $Created.Nice ($Created.Ago)
-		<% else %>
-			<% _t('CommentsInterface_singlecomment_ss.PBY','Posted by') %> $AuthorName.XML, $Created.Nice ($Created.Ago)
+<li class="comment bg-color-blue fg-color-white $EvenOdd<% if FirstLast %> $FirstLast <% end_if %> $SpamClass">
+	<b class="sticker sticker-left sticker-color-blue"></b>
+	<div class="avatar">
+		<% if $Gravatar %>
+			<img class="gravatar" src="$Gravatar" alt="Gravatar for $Name.ATT" title="Gravatar for $Name.ATT" />
 		<% end_if %>
-	</p>
+	</div>
 
-	<% if $ApproveLink || $SpamLink || $HamLink || $DeleteLink %>
-		<ul class="action-links">
-			<% if ApproveLink %>
-				<li><a href="$ApproveLink.ATT" class="approve"><% _t('CommentsInterface_singlecomment_ss.APPROVE', 'approve this comment') %></a></li>
-			<% end_if %>
-			<% if SpamLink %>
-				<li><a href="$SpamLink.ATT" class="spam"><% _t('CommentsInterface_singlecomment_ss.ISSPAM','this comment is spam') %></a></li>
-			<% end_if %>
-			<% if HamLink %>
-				<li><a href="$HamLink.ATT" class="ham"><% _t('CommentsInterface_singlecomment_ss.ISNTSPAM','this comment is not spam') %></a></li>
-			<% end_if %>
-			<% if DeleteLink %>
-				<li class="last"><a href="$DeleteLink.ATT" class="delete"><% _t('CommentsInterface_singlecomment_ss.REMCOM','remove this comment') %></a></li>
-			<% end_if %>
-		</ul>
-	<% end_if %>
-<% end_if %>
+	<div class="reply">
+		<% if not isPreview %>
+			<div class="date">$Created.Nice</div>
+			<div class="author">
+				<% if $URL %>
+					<a href="$URL.URL" rel="nofollow">$AuthorName.XML</a>
+				<% else %>
+					$AuthorName.XML
+				<% end_if %>
+			</div>
+		<% end_if %>
+		<div class="text">
+			$Comment
+		</div>
+
+		<% if $ApproveLink || $SpamLink || $HamLink || $DeleteLink %>
+			<div class="meta-options">
+				<% if ApproveLink %>
+					<a href="$ApproveLink.ATT">approve</a></li>
+				<% end_if %>
+				<% if SpamLink %>
+					<a href="$SpamLink.ATT">spam</a>
+				<% end_if %>
+				<% if HamLink %>
+					<a href="$HamLink.ATT">ham</a>
+				<% end_if %>
+				<% if DeleteLink %>
+					<a href="$DeleteLink.ATT">remove</a>
+				<% end_if %>
+			</div>
+		<% end_if %>
+	</div>
+</li>
