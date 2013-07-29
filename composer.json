@@ -1,0 +1,23 @@
+{
+	"name": "tractorcow/silverstripe-metro-comments",
+	"description": "Metro comments sub-theme for Silverstripe",
+	"type": "silverstripe-theme",
+	"keywords": ["silverstripe", "theme", "metro", "blog", "comments"],
+	"authors": [
+		{
+			"name": "Damian Mooyman",
+			"email": "damian.mooyman@gmail.com"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/tractorcow/silverstripe-metro-comments/issues"
+	},
+	"require": {
+		"silverstripe/framework": ">=3.0",
+		"silverstripe/cms": ">=3.0",
+		"tractorcow/silverstripe-metro": "3.0.*-dev"
+	},
+	"extra": {
+		"installer-name": "metro_comments"
+	}
+}
