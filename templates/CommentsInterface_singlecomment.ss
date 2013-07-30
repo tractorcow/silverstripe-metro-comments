@@ -1,4 +1,4 @@
-<li class="comment bg-color-blue fg-color-white $EvenOdd<% if FirstLast %> $FirstLast <% end_if %> $SpamClass">
+<li <% if ID %>id="comment-{$ID}"<% end_if %> class="comment bg-color-blue fg-color-white $EvenOdd<% if FirstLast %> $FirstLast <% end_if %> $SpamClass">
 	<b class="sticker sticker-left sticker-color-blue"></b>
 	<div class="avatar">
 		<% if $Gravatar %>
@@ -22,9 +22,9 @@
 		</div>
 
 		<% if $ApproveLink || $SpamLink || $HamLink || $DeleteLink %>
-			<div class="meta-options">
+			<div class="meta-options action-links">
 				<% if ApproveLink %>
-					<a href="$ApproveLink.ATT">approve</a></li>
+					<a href="$ApproveLink.ATT">approve</a>
 				<% end_if %>
 				<% if SpamLink %>
 					<a href="$SpamLink.ATT">spam</a>
