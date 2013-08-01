@@ -10,6 +10,7 @@ and Valerio Battaglia. It has been packaged as an easy to import Silverstripe th
 ## Requirements
 
  * SilverStripe 3.0 or above (both framework and cms)
+ * Comments module - <https://github.com/silverstripe/silverstripe-comments>
  * Metro Silverstripe Theme - <https://github.com/tractorcow/silverstripe-metro>
  * PHP 5.3
 
